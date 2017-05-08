@@ -7,10 +7,10 @@ use Foobooks\User;
 
 class Book extends Model
 {
-    public function user() {
+    public function author() {
         # Book belongs to Author
         # Define an inverse one-to-many relationship.
-        return $this->belongsTo('Foobooks\User');
+        return $this->belongsTo('Foobooks\User','user_id');
     }
 
 

@@ -66,6 +66,12 @@ return [
 
     'providers' => [
         'users' => [
+            'driver' => 'auth0'
+        ],
+    ],
+
+/*    'providers' => [
+        'users' => [
             'driver' => 'eloquent',
             'model' => Foobooks\User::class,
         ],
@@ -75,7 +81,7 @@ return [
         //     'table' => 'users',
         // ],
     ],
-
+*/
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

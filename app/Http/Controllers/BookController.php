@@ -11,13 +11,17 @@ use Foobooks\Book;
 use Foobooks\Chapter;
 
 use Illuminate\Auth\AuthManager;
-
+use Auth0;
 use Auth;
 
 use DB;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+ 		$this->middleware('auth0.jwt');
+    }
     /**
     * Responds to requests to GET /index
     */
@@ -25,11 +29,11 @@ class BookController extends Controller
     	$user = Auth::user();
     	if($user) {
 	    	$userid = $user->id;
-	    	$books = Book::where('user_id', '=', $userid)->get();	
-    	} else {
-    		$books = Book::all();
+	    	$mybooks = Book::where('user_id', '=', $userid)->with('author')->get();	
     	}
-        return view('books.index')->with(compact('books'));
+   		$books = Book::with('author')->wherePrivate(False)->get();
+    	return response()->json(['user'=>$user,'books'=>$books, 'mybooks'=>$mybooks],200);
+//        return view('books.index')->with(compact('books'));
     }
 
     public function getAbout() {

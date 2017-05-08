@@ -159,7 +159,9 @@ return [
         /*
          * Third-party package providers
          */
+        Barryvdh\Cors\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Auth0\Login\LoginServiceProvider::class,
 
     ],
 
@@ -206,7 +208,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        
+        'Auth0' => Auth0\Login\facade\Auth0::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],

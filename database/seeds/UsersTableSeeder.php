@@ -1,5 +1,5 @@
 <?php
-
+use Foobooks\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,20 +11,32 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-       DB::table('users')->insert([
-        'name'      => 'testa',
+        $faker = Faker\Factory::create();
+
+        DB::table('users')->insert([
+        'name'      => 'Anthony Robbines',
         'email'      => 'testa@test.com',
-        'password'   => Hash::make('testa'),
+        'password'   => Hash::make('1234567'),
         'created_at' => new DateTime,
         'updated_at' => new DateTime,
         ]);
 
         DB::table('users')->insert([
-        'name'      => 'test',
+        'name'      => 'Baskin Robbins',
         'email'      => 'test@test.com',
-        'password'   => Hash::make('test'),
+        'password'   => Hash::make('1234567'),
         'created_at' => new DateTime,
         'updated_at' => new DateTime,
         ]);
+
+        for ($i =0; $i<20; $i++){
+            User::create([
+                'name' => $faker->name,
+                'email' =>$faker->email,
+                'password' => Hash::make(123456),
+                'created_at'=> new DateTime,
+                'updated_at' => new DateTime,
+            ]);
+        }
     }
 }

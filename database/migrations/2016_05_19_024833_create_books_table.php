@@ -28,6 +28,7 @@ class CreateBooksTable extends Migration
             $table->integer('chapters');
             $table->string('cover');
             $table->string('synopsis');
+            $table->boolean('private')->default(true);
 
             # FYI: We're skipping the 'tags' field for now; more on that later.
 
