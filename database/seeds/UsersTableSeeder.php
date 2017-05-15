@@ -1,6 +1,7 @@
 <?php
-use Foobooks\User;
+
 use Illuminate\Database\Seeder;
+use Foobooks\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,32 +12,33 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
 
-        DB::table('users')->insert([
-        'name'      => 'Anthony Robbines',
+       $faker = Faker\Factory::create();
+
+       DB::table('users')->insert([
+        'name'      => 'testa',
         'email'      => 'testa@test.com',
-        'password'   => Hash::make('1234567'),
+        'password'   => Hash::make('testa'),
         'created_at' => new DateTime,
         'updated_at' => new DateTime,
         ]);
 
         DB::table('users')->insert([
-        'name'      => 'Baskin Robbins',
+        'name'      => 'test',
         'email'      => 'test@test.com',
-        'password'   => Hash::make('1234567'),
+        'password'   => Hash::make('test'),
         'created_at' => new DateTime,
         'updated_at' => new DateTime,
         ]);
 
-        for ($i =0; $i<20; $i++){
+        for ($i = 0; $i<20;$i++){
             User::create([
-                'name' => $faker->name,
-                'email' =>$faker->email,
+                'name'  => $faker->name,
+                'email' => $faker->email,
                 'password' => Hash::make(123456),
-                'created_at'=> new DateTime,
-                'updated_at' => new DateTime,
-            ]);
+                'created_at' => new DateTime,
+                'updated_at' => new DateTime
+                ]);
         }
     }
 }

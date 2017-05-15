@@ -21,8 +21,8 @@ class BookController extends Controller
 {
     public function __construct()
     {
-    	Auth::login(User::find(1));
-// 		$this->middleware('auth0.jwt');
+//    	Auth::login(User::find(1));
+ 		$this->middleware('auth0.jwt');
     }
     /**
     * Responds to requests to GET /index
