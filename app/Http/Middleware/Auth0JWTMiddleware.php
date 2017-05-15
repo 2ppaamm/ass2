@@ -71,7 +71,6 @@ class Auth0JWTMiddleware
 
             // if it does not represent a valid user, return a HTTP 401
             $user = $this->userRepository->getUserByDecodedJWT($jwtUser);
-
             if (!$user) {
                 return \Response::make('Unauthorized user', 401);
             }

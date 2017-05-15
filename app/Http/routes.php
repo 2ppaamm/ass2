@@ -30,19 +30,20 @@
 /*
 * Book Routes
 */
+Route::get('/', 'BookController@getIndex');
 Route::get('books/create', 'BookController@getCreate');
 Route::post('books/create', 'BookController@postCreate');
 Route::get('books/add', 'BookController@getAdd');
 Route::post('books/add', 'BookController@postAdd');
 Route::get('books/{id}', 'BookController@getBook');
 
-Route::get('chapters/{id}', 'BookController@getChapter');
+Route::get('chapters/{id}', 'ChapterController@getChapter');
+Route::post('chapters', 'ChapterController@postCreate');
 
 /*
 * Navigation Bar
 */
 Route::get('about', 'BookController@getAbout');
-Route::get('/', 'BookController@getIndex');
 
 Route::resource('tag', 'TagController');
 
