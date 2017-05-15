@@ -63,7 +63,7 @@ class Auth0JWTMiddleware
         if ($token) {
             try {
                 $jwtUser = $auth0->decodeJWT($token);
-            } catch (CoreException $e) {
+dd($jwtUser);            } catch (CoreException $e) {
                 return \Response::make('Unauthorized user', 401);
             } catch (InvalidTokenException $e) {
                 return \Response::make('Unauthorized user', 401);
