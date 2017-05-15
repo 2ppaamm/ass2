@@ -59,11 +59,11 @@ class Auth0JWTMiddleware
         if (!$this->validateToken($token)) {
             return \Response::make('Unauthorized user', 401);
         }
-
+dd($auth0->decodeJWT($token));
         if ($token) {
             try {
                 $jwtUser = $auth0->decodeJWT($token);
-dd($jwtUser);            } catch (CoreException $e) {
+            } catch (CoreException $e) {
                 return \Response::make('Unauthorized user', 401);
             } catch (InvalidTokenException $e) {
                 return \Response::make('Unauthorized user', 401);
