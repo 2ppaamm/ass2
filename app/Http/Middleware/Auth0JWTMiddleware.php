@@ -53,7 +53,6 @@ class Auth0JWTMiddleware
     public function handle($request, \Closure $next)
     {
         $auth0 = \App::make('auth0');
-
         $token = $this->getToken($request);
 
         if (!$this->validateToken($token)) {
@@ -71,6 +70,7 @@ class Auth0JWTMiddleware
 
             // if it does not represent a valid user, return a HTTP 401
             $user = $this->userRepository->getUserByDecodedJWT($jwtUser);
+
             if (!$user) {
                 return \Response::make('Unauthorized user', 401);
             }

@@ -25,7 +25,6 @@ class CreateBookRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'cover' => 'required',
             'synopsis' => 'required'
         ];
     }

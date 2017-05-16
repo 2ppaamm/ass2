@@ -26,7 +26,7 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->boolean('published');
             $table->integer('chapters');
-            $table->string('cover');
+            $table->string('cover')->default("http://lorempixel.com/400/200/");
             $table->string('synopsis');
             $table->boolean('private')->default(true);
 

@@ -71,7 +71,6 @@ class BookController extends Controller
 	 * Responds to requests to POST /books/create
 	 */
 	public function postCreate(CreateBookRequest $request) {
-
 	    // If the code makes it here, you can assume the validation passed
 	    $title = $request->input('title');
 	    $cover = $request->input('cover');
